@@ -140,6 +140,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "Instruction_cur[15]",
+					"strict" : false
+				},
+				{
+					"name" : "Instruction_cur[22]",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed May 29 16:53:03 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : RicsV_Pipelined
+Top-level Entity Name : RicsV_Pipelined
+Family : Cyclone IV E
+Total logic elements : 249
+    Total combinational functions : 217
+    Dedicated logic registers : 141
+Total registers : 141
+Total pins : 66
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

@@ -1,0 +1,16 @@
+module Mux_SrcB_E (
+    input [31:0] RD2_E,
+    input [31:0] Result_W,
+    input [31:0] ALUResult_M,
+    input [1:0] ForwardB_E,
+    output reg [31:0] Mux_RD2E_out
+);
+    always @(RD2_E or Result_W or ALUResult_M or ForwardB_E) begin
+        case (ForwardB_E)
+            2'b00: Mux_RD2E_out <= RD2_E;
+            2'b01: Mux_RD2E_out <= Result_W;
+            2'b10: Mux_RD2E_out <= ALUResult_M;
+            default: Mux_RD2E_out <= RD2_E;
+        endcase
+    end
+endmodule

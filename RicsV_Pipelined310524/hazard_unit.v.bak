@@ -1,0 +1,27 @@
+module Hazard_Unit(
+    input [31:0] Rs1_E, Rs2_E,Rs1_D, Rs2_D,
+    input [31:0] Rd_M, Rd_W,Rd_E,
+    input ResultSrc_E0,
+    input RegWrite_M, RegWrite_W,
+    output ForwardA_E, ForwardB_E,
+    output Stall_F, Stall_D, Flush_E
+
+);
+//load word
+wire lwStall;
+assign lwStall= ((Rs1_D==Rd_E) || (Rs2_D==Rd_E)) && ResultSrc_E0;
+assign Stall_F=Stall_D=Flush_E=lwStall;
+always @(*) begin
+if (( Rs1_E==Rd_M )and RegWrite_M )
+        ForwardA_E = 2'b10;
+else if ((Rs1_E==Rd_W) and RegWrite_W )
+            ForwardA_E = 2'b01;
+        else ForwardA_E=2'b00;
+
+if (( Rs2_E==Rd_M )and RegWrite_M )
+        ForwardB_E = 2'b10;
+else if ((Rs2_E==Rd_W) and RegWrite_W )
+            ForwardA_E = 2'b01;
+        else ForwardB_E=2'b00;
+end
+endmodule

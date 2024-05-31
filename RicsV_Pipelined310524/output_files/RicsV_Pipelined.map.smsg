@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at RicsV_Pipelined.v(260): always construct contains both blocking and non-blocking assignments File: C:/THANHDO_LAB_Verilog/github/IC_Design/RicsV_Pipelined/RicsV_Pipelined.v Line: 260
+Info (10281): Verilog HDL Declaration information at RicsV_Pipelined.v(36): object "PCplus4_D" differs only in case from object "PCPlus4_D" in the same scope File: C:/THANHDO_LAB_Verilog/github/IC_Design/RicsV_Pipelined/RicsV_Pipelined.v Line: 36
