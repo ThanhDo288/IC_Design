@@ -2,16 +2,16 @@
 
 module ALU_Control(
     input [1:0] ALUOp,
-    input [31:0] Instruction,
+    //input [31:0] Instruction,
     //input [6:0]func7,
-    //input func7,
-    //input [2:0] func3,
+    input func7,
+    input [2:0] func3,
     output reg [3:0] ALUControl
 );
-    wire func7;
-    wire[2:0] func3;
-    assign func7=Instruction[30];
-    assign func3=Instruction[14:12];
+    //wire func7;
+    //wire[2:0] func3;
+    //assign func7=Instruction[30];
+    //assign func3=Instruction[14:12];
     
     always @(ALUOp or func7 or func3 )
     begin

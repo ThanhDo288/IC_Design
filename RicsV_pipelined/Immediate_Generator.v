@@ -1,16 +1,23 @@
 ////////////////////////////// immediate generator //////////////////////
 // tao gia tri immidiate tu 12bit thanh 32bit
 module Immediate_Generator (
-    input [6:0] Opcode, 
-    input [31:0] instruction,  
-    output reg [31:0] ImmExt // imm 32bit
+    //input [1:0] ImmSrc_D, 
+    input [31:0] Instruction,  
+    output reg [31:0] Extimm_D // imm 32bit
 );
-    always @(Opcode or instruction) begin
-        case (Opcode)
-            7'b0010011: ImmExt= {{20{instruction[31]}}, instruction[31:20]}; // I instruction
-            7'b0100011: ImmExt= {{20{instruction[31]}}, instruction[31:25], instruction[11:7]}; // S instruction
-            7'b1100011: ImmExt= {{20{instruction[31]}},instruction[31], instruction[7], instruction[30:25],instruction[11:8]}; // B instruction
-            default:  ImmExt= {{20{instruction[31]}},instruction[31:20]}; //  instruction
+    always @( Instruction) begin
+        case (Instruction[6:0])
+            // I type
+            7'b0010011: Extimm_D = {{20{Instruction[31]}}, Instruction[31:20]};
+            // L type
+            7'b0000011: Extimm_D = {{20{Instruction[31]}}, Instruction[31:20]};
+            // S type
+            7'b0100011: Extimm_D = {{20{Instruction[31]}}, Instruction[31:25], Instruction[11:7]};
+            // B type
+            7'b1100011: Extimm_D = {{20{Instruction[31]}}, Instruction[31], Instruction[7], Instruction[30:25], Instruction[11:8]};
+            // J type
+            7'b1101111: Extimm_D = {{12{Instruction[31]}}, Instruction[31], Instruction[19:12], Instruction[20], Instruction[30:21]};
+            default: Extimm_D = 32'b0; 
         endcase
     end
 endmodule 
